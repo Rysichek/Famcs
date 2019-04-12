@@ -1,0 +1,5 @@
+﻿  pch.cpp
+  VeryLongUnsigned.cpp
+d:\programs\show\verylongunsigned\verylongunsigned\verylongunsigned.cpp(189): warning C4715: Long::operator<: значение возвращается не при всех путях выполнения
+d:\programs\show\verylongunsigned\verylongunsigned\verylongunsigned.cpp(159): warning C4715: Long::operator>: значение возвращается не при всех путях выполнения
+  VeryLongUnsigned.vcxproj -> D:\Programs\show\VeryLongUnsigned\Debug\VeryLongUnsigned.exe
