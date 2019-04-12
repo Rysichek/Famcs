@@ -1,4 +1,0 @@
-1 oval 4 red rosa white orchid red rosa white orchid
-1122 triangle 6 black tree white orchid red rosa black tree white orchid red rosa
-11 circle 6 yellow flowershine white orchid red rosa yellow flowershine white orchid red rosa
-14 rectangle 10 red rosa white phlox green cynia white orchid red rosa red rosa white phlox green cynia white orchid red rosa
