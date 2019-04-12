@@ -1,0 +1,4 @@
+﻿  Method Haffmana_decode.cpp
+d:\pr\method haffmana_decode\method haffmana_decode\method haffmana_decode.cpp(34): warning C4018: <: несоответствие типов со знаком и без знака
+d:\pr\method haffmana_decode\method haffmana_decode\method haffmana_decode.cpp(56): warning C4101: count: неиспользованная локальная переменная
+  Method Haffmana_decode.vcxproj -> D:\pr\Method Haffmana_decode\Debug\Method Haffmana_decode.exe

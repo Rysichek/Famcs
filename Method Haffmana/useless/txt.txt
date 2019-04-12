@@ -1,0 +1,59 @@
+void bfs(queue <pnode> que_bfs, pnode *root, int i_node)
+{
+	que_bfs.push(*root);
+	while (!que_bfs.empty()) {
+		*root = que_bfs.front();
+		que_bfs.pop();
+		if (root->ptr_null->ptr_null != 0 && root->ptr_null->ptr_one != 0) {
+			   que_bfs.push(*root->ptr_null);
+			key << (char)i_node;
+		}
+		else {
+			key << root->ptr_null->ch;
+		}
+		if (root->ptr_one->ptr_one != nullptr && root->ptr_one->ptr_null != 0) {
+				que_bfs.push(*root->ptr_one);
+			key << (char)i_node;
+		}
+		else { key << root->ptr_one->ch; }
+	}
+};
+
+
+
+
+while (in2.get(ch)) {
+		for (int i = 0; i < m_bool[(int)ch].count; i++) {
+			bt_st[7 - cnt] = m_bool[(int)ch].bl[i];
+			cnt++;
+			if (cnt == 8) {
+				cnt = 0;
+				out << (char)bt_st.to_ulong();
+				code << bt_st;
+
+			}
+		}
+		if (cnt == 0) 
+			cnt = 8;
+		else { 
+		     for (int i=cnt; i<8;i++)
+		     bt_st[7-i]=false;
+             out<<(char)bt_st.to_ulong();
+		     code<<bt_st;
+		    }
+		key<<cnt;
+		
+
+		if (mpeh[32]==0)
+	  	   i_node=32;
+		else{
+		   for (int i=255;i>=0;i--)
+		     if (mpeh[i]!=0)
+		       {i_node=i;
+		        break;
+		        }
+		    key<<(char)i_node;
+		    bfs(que_bfs, root, i_node);
+		    return 0;
+		}
+	}
