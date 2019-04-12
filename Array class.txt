@@ -1,0 +1,186 @@
+
+#include "pch.h"
+#include <iostream>
+#include <assert.h>
+using namespace std;
+
+class Array
+{
+	friend ostream & operator <<(ostream &, const Array &);
+	friend istream & operator >>(istream &, Array &);
+private:
+	int *ptr;
+	int size;
+	static int arrayCount;
+public:
+	Array(int = 10);
+	Array(const Array &);
+	~Array();
+	int getsize()const;
+	const Array& operator=(const Array &);
+	int operator==(const Array &) const;
+	int operator!=(const Array &) const;
+	int & operator[](int);
+	Array operator++();
+	Array operator++(int notused);
+	Array operator--(int notused);
+	Array operator--();
+	Array operator+(Array);
+	Array operator+(int);
+	static int getArrayCount();
+
+};
+int Array::arrayCount = 0;
+Array::~Array()
+{
+	--arrayCount;
+	delete[]ptr;
+}
+
+Array::Array(int arraySize)
+{
+	++arrayCount;
+	size = arraySize;
+	ptr = new int[size];
+	assert(ptr != 0);
+	for (int i = 0; i < size; i++)
+		ptr[i] = 0;
+}
+Array::Array(const Array & init)
+{
+	++arrayCount;
+	size = init.size;
+	ptr = new int[init.size];
+	assert(ptr != 0);
+	for (int i = 0; i < size; i++)
+		ptr[i] = init.ptr[i];
+}
+
+const Array& Array::operator=(const Array& right)
+{
+	if (&right != this)
+	{
+		delete[]ptr;
+		size = right.size;
+		assert(ptr != 0);
+		for (int i = 0; i < size; i++)
+			ptr[i] = right.ptr[i];
+	}
+	return *this;
+
+}
+
+int Array::operator==(const Array &right) const
+{
+	if (size != right.size)
+		return 1;
+	for (int i = 0; i < size; i++)
+		if (ptr[i] != right.ptr[i])
+			return 1;
+
+	return 0;
+}
+
+int Array::operator!=(const Array &right) const
+{
+	if (size != right.size)
+		return 0;
+	for (int i = 0; i < size; i++)
+		if (ptr[i] != right.ptr[i])
+			return 0;
+
+	return 1;
+}
+
+int Array::getsize() const
+{
+	return size;
+}
+
+int Array::getArrayCount()
+{
+	return arrayCount;
+}
+
+int &Array::operator[](int subscript)
+{
+	assert(0 <= subscript && subscript > size);
+	return ptr[subscript];
+}
+
+istream &operator>>(istream &input, Array &a)
+{
+	for (int i = 0; i < a.size; i++)
+		input >> a.ptr[i];
+	return input;
+
+}
+
+ostream &operator<<(ostream &output, const Array&a)
+{
+	for (int i = 0; i < a.size; i++)
+		output << a.ptr[i] << " ";
+	return output;
+}
+
+Array Array::operator++()
+{
+	for (int i = 0; i < size; i++)
+	{
+		ptr[i]++;
+	}
+
+	return *this;
+}
+
+Array Array::operator++(int notused)
+{
+	Array this_copy = *this;
+
+	for (int i = 0; i < size; i++)
+	{
+		ptr[i]++;
+	}
+
+	return this_copy;
+}
+
+Array Array::operator--(int notused)
+{
+	Array this_copy = *this;
+
+	for (int i = 0; i < size; i++)
+	{
+		ptr[i]--;
+	}
+
+	return this_copy;
+}
+
+Array Array::operator--()
+{
+
+	for (int i = 0; i < size; i++)
+	{
+		ptr[i]--;
+	}
+
+	return *this;
+}
+
+Array Array::operator+(Array c)
+{
+	Array temp;
+	for (int i = 0; i < c.size; i++)
+	{
+		temp[i] = ptr[i] + c.ptr[i];
+	}
+	return temp;
+
+}
+Array Array::operator+(int b)
+{
+	for (int i = 0; i < this->size; i++)
+		this->ptr[i] = this->ptr[i] + b;
+	return *this;
+}
