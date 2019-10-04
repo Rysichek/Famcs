@@ -1,0 +1,5 @@
+﻿  Project2.cpp
+D:\Labs\Proj 2\Project2\Project2.cpp(38,20): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Labs\Proj 2\Project2\Project2.cpp(48,20): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\Labs\Proj 2\Project2\Stack,Iterator.h(137): warning C4715:  Model::top: значение возвращается не при всех путях выполнения
+  Project2.vcxproj -> D:\Labs\Proj 2\Debug\Project2.exe
