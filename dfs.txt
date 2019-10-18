@@ -1,0 +1,77 @@
+#include <iostream>
+#include<utility>
+#include"stack"
+#include<algorithm>
+#include <fstream>
+#include <ctime>
+
+using namespace std;
+
+
+int n;
+
+int** Graf = new int* [n];
+bool* Check = new bool[n];
+int* Standings = new int[n];
+
+
+
+void dfs( int x)
+{
+	Check[x] = true;
+
+	for (int i = 0;i < n;i++)
+	{
+		if (Graf[x][i] == 1 && Check[i]==false)
+		{
+			dfs(i);
+		}
+
+		if (i == n - 1)
+		{
+			return;
+		}
+	}
+	
+}
+
+
+
+int main()
+{
+	ifstream fin("input.txt");
+	ofstream output("output.txt");
+
+	fin >> n;
+
+
+
+	for (int i = 0;i < n;i++)
+	{
+		Graf[i] = new int[n];
+		Check[i] = false;
+		for (int j = 0;j < n;j++)
+		{
+			fin >> Graf[i][j];
+		}
+	}
+	
+	dfs(0);
+
+   bool temp = false;
+	
+   for (int i=0;i<n;i++)
+   {
+	   if (Check[i] == false)
+	   {
+		   temp = true;
+	   }
+   }
+   if (temp == true)
+   {
+	   output << "NO";
+   }
+   else
+	   output << "YES";
+
+}
